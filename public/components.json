@@ -1,0 +1,30 @@
+[
+    {
+        "slug": "mlrun",
+        "name": "MLRun",
+        "description": "ML Run platform UI and API for the MLOps processes",
+        "port": 9999,
+        "link": "https://smartcommunitylab.it"
+    },
+    {
+        "slug": "minio",
+        "name": "Minio",
+        "description": "S3-compatible datalake",
+        "port": 9001,
+        "link": "https://smartcommunitylab.it"
+    },
+    {
+        "slug": "dhcore",
+        "name": "DH Core",
+        "description": "Core Digital Hub API",
+        "port": 8888,
+        "link": "https://smartcommunitylab.it"
+    },
+    {
+        "slug": "rm",
+        "name": "DH Resource Manamger",
+        "description": "Resource manager for Digital Hub applications",
+        "port": 7777,
+        "link": "https://smartcommunitylab.it"
+    }
+]
