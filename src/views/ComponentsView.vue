@@ -60,8 +60,8 @@ export default {
               <ol>
                 <li>Install Coder CLI</li>
                 <li>Login to coder with <strong>coder login</strong></li>
-                <li>Launch SSH agent workspace from template <strong>TEMPLATE</strong></li>
-                <li>Perform <strong>coder port-forward --tcp {{sshComponent.port}}:{{sshComponent.port}}</strong> command</li>
+                <li>Launch SSH agent workspace from template <strong>Port-forward Agent</strong></li>
+                <li>Perform <strong>coder port-forward workspacename --tcp {{sshComponent.port}}:{{sshComponent.port}}</strong> command</li>
                 <li>Connect to the component with <strong>http://localhost:{{sshComponent.port}}</strong></li>
               </ol>
             </div>
