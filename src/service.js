@@ -4,5 +4,11 @@ export default {
         .then((data) => {
             return data.json();
         })
+    },
+    getMonitoring() {
+        return fetch('/monitoring.json')
+        .then((data) => {
+            return data.json();
+        })
     }
 }

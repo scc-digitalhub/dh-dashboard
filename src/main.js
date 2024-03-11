@@ -1,13 +1,17 @@
-import './assets/main.css'
-import 'mdb-ui-kit/css/mdb.min.css';
-import * as mdb from 'mdb-ui-kit';
+import * as mdb from 'mdb-ui-kit'; // lib
+window.mdb = mdb;
+
+import './assets/scss/global.scss';
 
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 
+import store from './store'
+
 const app = createApp(App)
 
 app.use(router)
+app.use(store)
 
 app.mount('#app')

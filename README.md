@@ -9,6 +9,27 @@ File ``public/components.json`` defines the list of DH components that can be ac
 - ``port`` defines TCP/HTTP port to perform port forwarding with SSH (optional).
 - ``link`` defines the Web connection within coder domain management (optional).
 
+## Monitoring Definition
+File ``public/monitoring.json`` defines the list of Monitoring pages that can be accessed with UI or port forwarding. Each page is defined with
+- ``slug`` unique dashboard ID
+- ``name`` user-friendly dashboard name
+- ``description`` description of the dashboard
+- ``link`` defines the link to the dasboard.
+
+## Authentication
+
+It is possible to enable OIDC authentication for the dashboard component. Specifically, it is necessary to define the OIDC configuration (JSON) as of
+[OIDC Client](https://authts.github.io/oidc-client-ts/) as environment variable ``VITE_OIDC_CONFIG``.
+
+### Environment variables
+
+It is possible to define the environment variables at the build time (``.env`` file notations) or at deployment time overwriting the file
+``/public/env.js``. The supported variables are
+- ``VITE_OIDC_CONFIG`` - OIDC configuration
+- ``VITE_PLATFORM_TITLE``  - name of the platform
+- ``VITE_PLATFORM_VERSION`` - version of the platform
+
+
 ## Build
 To build Vue application, use the following steps (Node required):
 - ``npm i`` to install the dependencies

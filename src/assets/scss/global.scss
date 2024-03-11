@@ -1,0 +1,14 @@
+$color-primary: #DB6A13;
+$color-link: #AD530F;
+
+
+.bg-primary, .btn-primary{
+    background-color: $color-primary !important;
+}
+
+.btn-link, .btn-link:hover, .btn-link:focus, .btn-link:active {
+    color:  $color-link !important;
+}
+
+@import 'mdb-ui-kit/css/mdb.min.css';
+@import '../main.css';

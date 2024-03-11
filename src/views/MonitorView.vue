@@ -1,4 +1,15 @@
-<script setup>
+<script>
+import DataService from '../service.js';
+export default {
+  data() {
+    return {
+      components: [],
+    }
+  },
+  mounted() {
+    DataService.getMonitoring().then(components => this.components = components);
+  }
+}
 
 </script>
 
@@ -15,38 +26,14 @@
         <!-- Jumbotron -->
 
         <div class="row">
-          <div class="col-lg-4 col-md-12 mb-4">
+          <div class="col mb-3" v-for="c in components" :key="c.slug">
             <div class="card text-center">
               <div class="card-body">
-                <h5 class="card-title">K8S Infrastructure</h5>
-                <p class="card-text">
-                  Deployed components and services
-                </p>
-                <a href="#!" class="btn btn-primary">More</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-12 mb-4">
-            <div class="card text-center">
-              <div class="card-body">
-                <h5 class="card-title">Resources</h5>
-                <p class="card-text">
-                  CPU, traffic, memory usage
-                </p>
-                <a href="#!" class="btn btn-primary">More</a>
-              </div>
-            </div>
-          </div>         
-          
-          <div class="col-lg-4 col-md-12 mb-4">
-            <div class="card text-center">
-              <div class="card-body">
-                <h5 class="card-title">Application logs</h5>
-                <p class="card-text">
-                  Log data of the components and services
-                </p>
-                <a href="#!" class="btn btn-primary">More</a>
+                <h5 class="card-title">{{c.name}}</h5>
+                <p class="card-text">{{c.description}}</p>
+                <div class="float-end">
+                  <a v-if="c.link" class="btn btn-link mx-3" target="_blank" :href="c.link"><i class="fas fa-link"></i> Open</a>
+                </div>
               </div>
             </div>
           </div>

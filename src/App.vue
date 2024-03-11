@@ -1,4 +1,58 @@
-<script setup>
+<script>
+import { mapGetters, mapActions } from 'vuex'
+import { Dropdown, Collapse, initMDB } from "mdb-ui-kit";
+
+import { env } from './config/env.js'
+
+export default {
+  name: 'App',
+  computed: {
+    ...mapGetters( [
+      'oidcIsAuthenticated',
+      'oidcUser'
+    ]),
+    title() {
+      return env.VITE_PLATFORM_TITLE
+    },
+    version() {
+      return env.VITE_PLATFORM_VERSION;
+    },
+    hasAuth() {
+      return !!env.VITE_OIDC_CONFIG
+    }
+  },
+  methods: {
+    ...mapActions( [
+      'authenticateOidcPopup',
+      'signOutOidc'
+    ]),
+    userLoaded: function (e) {
+      console.log('userLoaded', e.detail)
+    },
+    oidcError: function (e) {
+      console.log('oidcError', e.detail)
+    },
+    automaticSilentRenewError: function (e) {
+      console.log('automaticSilentRenewError', e.detail)
+    },
+    signOut: function () {
+      this.signOutOidc().then(() => {
+        this.$router.push('/')
+      })
+    }
+  },
+  mounted () {
+    window.addEventListener('vuexoidc:userLoaded', this.userLoaded)
+    window.addEventListener('vuexoidc:oidcError', this.oidcError)
+    window.addEventListener('vuexoidc:automaticSilentRenewError', this.automaticSilentRenewError)
+    initMDB({ Dropdown, Collapse });
+  },
+  destroyed () {
+    window.removeEventListener('vuexoidc:userLoaded', this.userLoaded)
+    window.removeEventListener('vuexoidc:oidcError', this.oidcError)
+    window.removeEventListener('vuexoidc:automaticSilentRenewError', this.automaticSilentRenewError)
+  }
+}
 </script>
 
 <template>
@@ -37,7 +91,7 @@
   <!-- Navbar -->
   <nav
        id="main-navbar"
-       class="navbar navbar-expand-lg navbar-light bg-white fixed-top"
+       class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top"
        >
     <!-- Container wrapper -->
     <div class="container-fluid">
@@ -56,18 +110,39 @@
 
       <!-- Brand -->
       <a class="navbar-brand" href="#">
-        DIGITAL HUB
+        {{title}} <sup>({{version}})</sup>
       </a>
-      
 
-      <!-- Right links -->
-      <ul class="navbar-nav ms-auto d-flex flex-row">
-        <li class="nav-item me-3 me-lg-0">
-              <a class="nav-link" href="https://github.com/scc-digitalhub" rel="nofollow" target="_blank">
-                <i class="fab fa-github"></i>
-              </a>
+      <div class="d-flex align-items-center">
+        <!-- GitHub -->
+        <a class="text-reset me-3 nav-link" href="https://github.com/scc-digitalhub" rel="nofollow" target="_blank">
+          <i class="text-light fab fa-github"></i>
+        </a>
+        <!-- Account -->
+        <div class="dropdown" v-if="hasAuth">
+          <a
+            data-mdb-dropdown-init
+            class="dropdown-toggle d-flex align-items-center hidden-arrow nav-link" 
+            href="#"
+            id="navbarDropdownMenuAvatar"
+            role="button"
+            aria-expanded="false"
+          >
+            <i class="text-light fas fa-user"></i>
+          </a>
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="navbarDropdownMenuAvatar"
+          >
+            <li v-if="oidcUser">
+              <a class="dropdown-item" href="#">{{oidcUser.preferred_username}}</a>
             </li>
-      </ul>
+            <li>
+              <a class="dropdown-item" @click="signOut" >Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
     <!-- Container wrapper -->
   </nav>

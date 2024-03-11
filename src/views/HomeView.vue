@@ -1,5 +1,12 @@
-<script setup>
-
+<script>
+  import { env } from '../config/env.js'
+  export default {
+    data() {
+      return {
+        title: env.VITE_PLATFORM_TITLE,
+      }
+  },
+  }
 </script>
 
 <template>
@@ -9,13 +16,13 @@
       <section>
         <!-- Jumbotron -->
         <div id="intro" class="p-5 text-center bg-light shadow-5 rounded-5 mb-5">
-          <h1 class="mb-3 h2">Welcome to Digital Hub</h1>
+          <h1 class="mb-3 h2">Welcome to {{title}}</h1>
           <p class="mb-3">Manage your data and AI services</p>
         </div>
         <!-- Jumbotron -->
 
         <div class="row">
-          <div class="col-lg-6 col-md-12 mb-6">
+          <div class="col-lg-6 col-md-6 mb-6">
             <div class="card text-center">
               <div class="card-body">
                 <h5 class="card-title">Digital Hub Components</h5>
@@ -37,9 +44,7 @@
                 <router-link class="btn btn-primary" to="/monitor">More</router-link>
               </div>
             </div>
-          </div>
-
-          
+          </div>      
         </div>
       </section>
       <!--Section: Content-->
