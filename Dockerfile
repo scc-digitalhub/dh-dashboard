@@ -13,8 +13,7 @@ COPY . .
 # Build the project
 RUN npm run build
 
-FROM smartcommunitylab/distroless-ngnix as production-build
-COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
+FROM nginxinc/nginx-unprivileged:alpine as production-build
 
 # Copy from the stahg 1
 COPY --from=builder /vue-ui/dist /usr/share/nginx/html
