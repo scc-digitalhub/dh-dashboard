@@ -3,9 +3,15 @@ import { mapGetters, mapActions } from 'vuex'
 import { Dropdown, Collapse, initMDB } from "mdb-ui-kit";
 
 import { env } from './config/env.js'
+import DataService from './service.js';
 
 export default {
   name: 'App',
+  data() {
+    return {
+      hasMonitoring: false
+    }
+  },
   computed: {
     ...mapGetters( [
       'oidcIsAuthenticated',
@@ -42,6 +48,7 @@ export default {
     }
   },
   mounted () {
+    DataService.hasMonitoring().then(hasMonitoring => this.hasMonitoring = hasMonitoring)
     window.addEventListener('vuexoidc:userLoaded', this.userLoaded)
     window.addEventListener('vuexoidc:oidcError', this.oidcError)
     window.addEventListener('vuexoidc:automaticSilentRenewError', this.automaticSilentRenewError)
@@ -65,7 +72,7 @@ export default {
        >
     <div class="position-sticky">
       <div class="list-group list-group-flush mx-3 mt-4">
-        <router-link
+        <router-link v-if="hasMonitoring"
           to="/"
            class="list-group-item list-group-item-action py-2 ripple"
            aria-current="true"
@@ -78,7 +85,7 @@ export default {
            class="list-group-item list-group-item-action py-2 ripple"
            ><i class="fas fa-building fa-fw me-3"></i
           ><span>Components</span></router-link>
-        <router-link 
+        <router-link  v-if="hasMonitoring"
            to="/monitor"
            class="list-group-item list-group-item-action py-2 ripple"
            ><i class="fas fa-chart-line fa-fw me-3"></i

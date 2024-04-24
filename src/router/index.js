@@ -6,9 +6,13 @@ import OidcCallback from '../views/OidcCallback.vue'
 
 import { vuexOidcCreateRouterMiddleware } from 'vuex-oidc'
 
+import DataService from '../service.js';
+
 import store from '../store'
 
 import { env } from '../config/env.js'
+
+let hasMonitoring = null;
 
 const router = createRouter({
   history: createWebHistory(env.BASE_URL),
@@ -38,5 +42,14 @@ const router = createRouter({
 if (env.VITE_OIDC_CONFIG) {
   router.beforeEach(vuexOidcCreateRouterMiddleware(store))
 }
+
+router.beforeEach(async (to) => {
+  if (hasMonitoring === null) {
+    hasMonitoring = await DataService.hasMonitoring();
+  }
+  if (!hasMonitoring && to.name === 'home') {
+    return { name: 'components' }
+  }
+})
 
 export default router
