@@ -25,9 +25,9 @@
           <div class="col-lg-6 col-md-6 mb-6">
             <div class="card text-center">
               <div class="card-body">
-                <h5 class="card-title">Digital Hub Components</h5>
+                <h5 class="card-title">Platform Components</h5>
                 <p class="card-text">
-                  Access to the different DH components via Web  or from your development environment. Explore your data, manage projects, data, services, and operations.
+                  Access to the different platform components via Web  or from your development environment. Explore your data, manage projects, data, services, and operations.
                 </p>
                 <router-link class="btn btn-primary" to="/components">More</router-link>
               </div>
