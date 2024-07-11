@@ -37,7 +37,7 @@
           <div class="col-lg-6 col-md-6 mb-6">
             <div class="card text-center">
               <div class="card-body">
-                <h5 class="card-title">Digital Hub Monitoring</h5>
+                <h5 class="card-title">Platform Monitoring</h5>
                 <p class="card-text">
                  Monitor your infrastrucutre, resources, and applications. Observe the state of the components, services, and data.
                 </p>
