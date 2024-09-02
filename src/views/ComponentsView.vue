@@ -26,7 +26,7 @@ export default {
       <section>
         <!-- Jumbotron -->
         <div id="intro" class="p-5 text-center bg-light shadow-5 rounded-5 mb-5">
-          <h1 class="h2">Digital Hub Components</h1>
+          <h1 class="h2">Platform Components</h1>
           <p>Open component UI or connect using SSH agend</p>
         </div>
         <!-- Jumbotron -->
@@ -36,7 +36,7 @@ export default {
             <div class="card text-center">
               <div class="card-body">
                 <h5 class="card-title">{{c.name}}</h5>
-                <p class="card-text">{{c.description}}</p>
+                <p class="card-text" >{{c.description}}</p>
                 <div class="float-end">
                   <a v-if="c.link" class="btn btn-link mx-3" target="_blank" :href="c.link"><i class="fas fa-link"></i> Open</a>
                   <button v-if="c.port" type="button" @click="ssh(c)" class="btn btn-link" data-mdb-toggle="modal" data-mdb-target="#sshModal"><i class="fas fa-plug"></i> SSH</button>
@@ -76,7 +76,8 @@ export default {
 <style scoped>
 .card-text {
   overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  min-height: 80px;
+  /* white-space: nowrap;
+  text-overflow: ellipsis; */
 }
 </style>

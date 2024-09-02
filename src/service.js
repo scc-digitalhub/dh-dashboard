@@ -1,8 +1,10 @@
 export default {
     getComponents() {
         return fetch('/components.json')
-        .then((data) => {
-            return data.json();
+        .then(async (data) => {
+            const res = await (data.json() || []);
+            res.sort((a,b) => (a.order || 0) - (b.order || 0));
+            return res;
         })
     },
     getMonitoring() {
