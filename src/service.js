@@ -3,7 +3,12 @@ export default {
         return fetch('/components.json')
         .then(async (data) => {
             const res = await (data.json() || []);
-            res.sort((a,b) => (a.order || 0) - (b.order || 0));
+            const max = res.reduce((a,b) => Math.max(a,b.order || 0), 0) + 1;
+            // if all unodered, keep original order
+            if (max == 1) return res;
+            // unordered should be at the end
+            res.forEach(element => element.order = (element.order != null && element.order != undefined) ? element.order : max);
+            res.sort((a,b) => a.order -b.order);
             return res;
         })
     },
