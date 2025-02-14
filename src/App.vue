@@ -30,7 +30,8 @@ export default {
   methods: {
     ...mapActions( [
       'authenticateOidcPopup',
-      'signOutOidc'
+      'signOutOidc',
+      'removeOidcUser'
     ]),
     userLoaded: function (e) {
       console.log('userLoaded', e.detail)
@@ -42,7 +43,7 @@ export default {
       console.log('automaticSilentRenewError', e.detail)
     },
     signOut: function () {
-      this.signOutOidc().then(() => {
+      this.removeOidcUser().then(() => {
         this.$router.push('/')
       })
     }
