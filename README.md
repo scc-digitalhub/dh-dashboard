@@ -1,5 +1,5 @@
-# dh-dashboard
-DigitalHub dashboard for component access. Static UI based on Vue SPA served with Nginx.
+# DigitalHub Dashboard 
+DigitalHub landing page application for component access. Static UI based on Vue SPA served with Nginx.
 
 ## Component Definition
 File ``public/components.json`` defines the list of DH components that can be accessed with UI or port forwarding. Each component is defined with
@@ -38,3 +38,4 @@ To build Vue application, use the following steps (Node required):
 To build docker image, use the following steps:
 - ``docker build -t <tag> .``
 - ``docker run -d --name <container-name> -p 80:80 <tag>``
+

@@ -1,14 +1,1 @@
-[
-    {
-        "slug": "logs",
-        "name": "Application Logs",
-        "description": "Log data of the components and services",
-        "link": "https://smartcommunitylab.it/logs"
-    },
-    {
-        "slug": "resources",
-        "name": "Resources",
-        "description": "CPU, traffic, memory usage",
-        "link": "https://smartcommunitylab.it/resources"
-    }
-]
+[]

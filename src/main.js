@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0 
 import * as mdb from 'mdb-ui-kit'; // lib
 window.mdb = mdb;
 

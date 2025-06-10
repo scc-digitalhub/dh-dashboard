@@ -1,3 +1,4 @@
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 <script>
 import { mapGetters, mapActions } from 'vuex'
 import { Dropdown, Collapse, initMDB } from "mdb-ui-kit";

@@ -1,3 +1,4 @@
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 <script>
 import DataService from '../service.js';
 export default {

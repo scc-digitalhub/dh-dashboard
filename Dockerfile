@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: Apache-2.0 
+
 # stage1 as builder
 FROM node:18-alpine as builder
 

@@ -1,30 +1,57 @@
 [
     {
-        "slug": "mlrun",
-        "name": "MLRun",
-        "description": "ML Run platform UI and API for the MLOps processes",
-        "port": 9999,
-        "link": "https://smartcommunitylab.it"
+      "slug": "minio",
+      "name": "Minio",
+      "description": "S3-compatible datalake",
+      "port": "",
+      "order": 3,
+      "link": "http://192.168.49.2:30090"
     },
     {
-        "slug": "minio",
-        "name": "Minio",
-        "description": "S3-compatible datalake",
-        "port": 9001,
-        "link": "https://smartcommunitylab.it"
+      "slug": "coder",
+      "name": "Coder",
+      "description": "Workspace manager",
+      "port": "",
+      "order": 1,
+      "link": "http://192.168.49.2:30170"
     },
     {
-        "slug": "dhcore",
-        "name": "DH Core",
-        "description": "Core Digital Hub API",
-        "port": 8888,
-        "link": "https://smartcommunitylab.it"
+      "slug": "krm",
+      "name": "Kubernetes Resource Manager",
+      "description": "Manager for Kubernetes Resources",
+      "port": "",
+      "link": "http://192.168.49.2:30160"
     },
     {
-        "slug": "rm",
-        "name": "DH Resource Manamger",
-        "description": "Resource manager for Digital Hub applications",
-        "port": 7777,
-        "link": "https://smartcommunitylab.it"
+      "slug": "nuclio",
+      "name": "Nuclio",
+      "description": "Serverless platform",
+      "port": "",
+      "order": 5,
+      "link": "http://192.168.49.2:30050"
+    },
+    {
+      "slug": "mlrun",
+      "name": "MLRun Dashboard",
+      "description": "ML Run platform UI and API for the MLOps processes",
+      "port": "",
+      "order": 6,
+      "link": "http://192.168.49.2:30060"
+    },
+    {
+      "slug": "kubeflow",
+      "name": "Kubeflow Dashboard",
+      "description": "Kubeflow Pipelines is a platform for building and deploying portable, scalable machine learning (ML) workflows",
+      "port": "",
+      "link": "http://192.168.49.2:30100",
+      "order": 4
+    },
+    {
+      "slug": "dhcore",
+      "name": "Core",
+      "description": "Core Management UI",
+      "port": "",
+      "link": "http://192.168.49.2:30180",
+      "order": 0
     }
 ]
