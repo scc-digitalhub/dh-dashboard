@@ -1,4 +1,7 @@
+// SPDX-FileCopyrightText: © 2025 DSLab - Fondazione Bruno Kessler
+//
 // SPDX-License-Identifier: Apache-2.0
+
 import Vuex from 'vuex'
 import { vuexOidcCreateStoreModule } from 'vuex-oidc'
 import { WebStorageStateStore } from 'oidc-client-ts'
